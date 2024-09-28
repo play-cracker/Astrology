@@ -34,18 +34,16 @@
 
         nav ul {
             list-style-type: none;
-            display: flex;
-            margin-left: auto; /* Aligns nav to the right */
         }
 
         nav ul li {
-            margin-left: 25px;
+            display: inline;
+            margin-right: 25px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 1rem; /* Adjusted font size */
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -60,7 +58,8 @@
             background-size: cover;
             color: #fff;
             text-align: center;
-            padding: 40px 20px; /* Adjusted padding */
+            padding: clamp(60px, 10vh, 100px) 20px; /* Dynamic vertical padding */
+            height: 50vh;
             z-index: 1;
             animation: fadeIn 2s ease-in-out;
         }
@@ -71,7 +70,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(1.5rem, 5vw + 1rem, 3rem);
+            font-size: clamp(1.5rem, 5vw + 1rem, 3rem); /* Dynamic font size */
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
             margin-bottom: 20px;
         }
@@ -79,10 +78,10 @@
         .cta-button {
             background: #e67e22;
             color: #fff;
-            padding: 10px 15px;
+            padding: 10px 15px; /* Smaller button padding for mobile */
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 1rem; /* Adjusted font size */
             transition: background 0.3s, transform 0.3s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
@@ -98,50 +97,40 @@
             z-index: 1;
         }
 
-        .introduction {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px; /* Adjusted padding for better spacing */
-            text-align: center;
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 10px;
-        }
-
-        .introduction h2 {
-            font-size: 1.3rem;
-            color: #e67e22;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .introduction p {
-            font-size: 1rem;
-            line-height: 1.2;
-            color: #f9f9f9;
-        }
-
         .services-section,
         .panchangam-section {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto;
+            margin-bottom: 60px;
         }
 
         .services-title,
         .panchangams-title {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* Reduced size for mobile */
             font-weight: bold;
-            margin: 20px 0;
+            margin: 40px 0 20px;
             text-decoration: underline triple #e67e22;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background: #e67e22;
+            margin: 10px auto;
+            width: 60%;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Adjusted gap */
         }
 
         .service {
@@ -150,7 +139,13 @@
             padding: 20px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.5s ease-in-out;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .service:hover {
@@ -169,19 +164,6 @@
             margin-bottom: 0;
         }
 
-        #contact {
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        #contact .phone {
-            font-size: 1.5rem;
-            color: #e67e22;
-        }
-
         footer {
             background: rgba(30, 30, 30, 0.9);
             color: #fff;
@@ -190,9 +172,22 @@
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
         }
 
+        #contact {
+            text-align: center;
+            padding: 40px 20px; /* Adjusted padding */
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        #contact .phone {
+            font-size: 1.5rem; /* Adjusted size for mobile */
+            color: #e67e22;
+        }
+
         .bullet-points {
             margin-top: 20px;
-            font-size: 1rem;
+            font-size: 1rem; /* Adjusted font size for mobile */
             line-height: 1.5;
         }
 
@@ -205,7 +200,7 @@
             position: relative;
             padding-left: 20px;
             margin-bottom: 15px;
-            font-size: 1rem;
+            font-size: 1rem; /* Adjusted font size */
         }
 
         .bullet-points li:before {
@@ -216,63 +211,23 @@
             font-size: 1.2rem;
         }
 
-        /* Media Queries for Mobile */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .hero {
-                padding: 40px 10px; /* Keep the padding for smaller screens */
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .introduction {
-                padding: 20px;
-            }
-
-            .cta-button {
-                font-size: 0.9rem;
-                padding: 8px 12px;
-            }
-
-            #contact .phone {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .introduction h2 {
-                font-size: 1.2rem;
-            }
-
-            .introduction p {
-                font-size: 0.9rem;
-            }
+        #starsCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-    <audio id="background-music" loop autoplay controls>
-        <source src="https://github.com/play-cracker/Astrology/blob/main/Astro.mp3" type="audio/mpeg">
-        <source src="https://github.com/play-cracker/Astrology/blob/main/Astro.ogg" type="audio/ogg">
-        <source src="https://github.com/play-cracker/Astrology/blob/main/Astro.wav" type="audio/wav">
-        <source src="https://github.com/play-cracker/Astrology/blob/main/Astro.m4a" type="audio/mp4">
+    <audio id="background-music" loop autoplay controls></audio>
+        <source src="play-cracker\Astrology\Astro.mp3" type="audio/mpeg">
+        <source src="play-cracker\Astrology\Astro.ogg" type="audio/ogg">
+        <source src="play-cracker\Astrology\Astro.wav" type="audio/wav">
+        <source src="play-cracker\Astrology\Astro.m4a" type="audio/mp4">
         Your browser does not support the audio element.
     </audio>
     <canvas id="starsCanvas"></canvas>
@@ -287,18 +242,11 @@
     
     <section class="hero">
         <h1>Discover Your Destiny Among the Stars</h1>
-        <a href="#contact" class="cta-button">Get Your Prediction</a>
-        <h4 style="margin-top: 20px;">Integrating astrological principles with scientific methodologies to enhance predictive accuracy</h4>
+        <a href="#contact" class="cta-button">Get Your Horoscope</a>
+        <h3 style="margin-top: 20px;">Integrating astrological principles with scientific methodologies to enhance predictive accuracy</h3>
     </section>
     
     <main>
-        <section class="introduction">
-            <h2>Unlock Your Potential</h2>
-            <p>
-                At Shoot the Moon Astrology, we believe that sometimes, a single question can open the door to profound insights. Our expert astrologers are here to provide you with insights tailored specifically to your astrological profile, guiding you on your journey to self-discovery.
-            </p>
-        </section>
-
         <section class="services-section">
             <h2 class="services-title">Astrology Services</h2>
             <div class="services-grid">
@@ -331,6 +279,10 @@
                     <p>Analysis of how different locations impact a person’s life and opportunities.</p>
                 </div>
                 <div class="service">
+                    <h3>Past Life Reading</h3>
+                    <p>Explore past life experiences and how they influence your current life journey and relationships.</p>
+                </div>
+                <div class="service">
                     <h3>Transits and Progressions</h3>
                     <p>Understand how current planetary movements affect your natal chart and life path.</p>
                 </div>
@@ -352,14 +304,15 @@
 
         <section id="contact">
             <h2>Contact Us</h2>
-            <p class="phone">
-                <a href="https://wa.me/919036544997" style="color: #e67e22; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+            <p class="phone" style="display: flex; align-items: center; justify-content: center;">
+                <a href="https://wa.me/919036544997" style="color: #e67e22; text-decoration: none; display: flex; align-items: center;">
                     <img src="https://tochat.be/whatsapp-icon-white.png" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 10px;"> 
                     9036544997
                 </a>
             </p>
             <p style="text-align: center;">We’re here to guide you through your astrological journey!</p>
         </section>        
+        
         
     </main>
     
@@ -383,7 +336,7 @@
                 y: Math.random() * canvas.height,
                 dx: (Math.random() - 0.5) * 2,
                 dy: (Math.random() - 0.5) * 2,
-                brightness: Math.random() * 0.2 + 0.1
+                brightness: Math.random() * 0.2 + 0.1  // Adjusted brightness range
             });
         }
 
@@ -411,7 +364,7 @@
                         ctx.beginPath();
                         ctx.moveTo(stars[i].x, stars[i].y);
                         ctx.lineTo(stars[j].x, stars[j].y);
-                        ctx.strokeStyle = `rgba(255, 215, 0, 0.3)`;
+                        ctx.strokeStyle = `rgba(255, 215, 0, 0.3)`; // Optional: Adjust connection brightness
                         ctx.lineWidth = 1;
                         ctx.stroke();
                     }
