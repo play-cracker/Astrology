@@ -1,390 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoot the Moon Astrology</title>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Celestial Code</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Josefin Sans', sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(120deg, #121212, #1e1e1e);
-            color: #f9f9f9;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      line-height: 1.6;
+      background: radial-gradient(circle at center, #1e1e1e 0%, #0d0d0d 100%);
+      color: #f9f9f9;
+      overflow-x: hidden;
+    }
 
-        header {
-            background: rgba(30, 30, 30, 0.9);
-            color: #fff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
+    header {
+      background: rgba(30, 30, 30, 0.9);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
 
-        nav ul {
-            list-style-type: none;
-        }
+    nav ul {
+      list-style-type: none;
+      display: flex;
+    }
 
-        nav ul li {
-            display: inline;
-            margin-right: 25px;
-        }
+    nav ul li {
+      margin-left: 20px;
+    }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s, transform 0.3s;
-        }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
 
-        nav ul li a:hover {
-            color: #e67e22;
-            transform: scale(1.1);
-        }
+    nav ul li a:hover {
+      color: #e67e22;
+      transform: scale(1.1);
+    }
 
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('test3.webp') no-repeat center center;
-            background-size: cover;
-            color: #fff;
-            text-align: center;
-            padding: clamp(60px, 10vh, 100px) 20px; /* Dynamic vertical padding */
-            height: 50vh;
-            z-index: 1;
-            animation: fadeIn 2s ease-in-out;
-        }
+    .hero {
+      background: radial-gradient(circle at center, #000000aa 0%, #00000055 100%),
+                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') no-repeat center center;
+      background-size: cover;
+      text-align: center;
+      padding: 80px 20px;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      position: relative;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+      margin-bottom: 20px;
+    }
 
-        .hero h1 {
-            font-size: clamp(1.5rem, 5vw + 1rem, 3rem); /* Dynamic font size */
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-            margin-bottom: 20px;
-        }
+    .hero h3 {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      color: #ccc;
+    }
 
-        .cta-button {
-            background: #e67e22;
-            color: #fff;
-            padding: 10px 15px; /* Smaller button padding for mobile */
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem; /* Adjusted font size */
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
+    .cta-button {
+      background: linear-gradient(45deg, #e67e22, #ff9e3d);
+      color: #fff;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      margin: 10px auto 0;
+      text-decoration: none;
+      width: auto;
+      max-width: 200px;
+    }
 
-        .cta-button:hover {
-            background: #d35400;
-            transform: scale(1.05);
-        }
+    .cta-button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px rgba(255, 165, 0, 0.9);
+    }
 
-        main {
-            padding: 40px 20px;
-            position: relative;
-            z-index: 1;
-        }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px rgba(230, 126, 34, 0.6); }
+      50% { box-shadow: 0 0 30px rgba(255, 140, 0, 0.8); }
+      100% { box-shadow: 0 0 15px rgba(230, 126, 34, 0.6); }
+    }
 
-        .services-section,
-        .panchangam-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            margin-bottom: 60px;
-        }
+    main {
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
 
-        .services-title,
-        .panchangams-title {
-            text-align: center;
-            font-size: 1.5rem; /* Reduced size for mobile */
-            font-weight: bold;
-            margin: 40px 0 20px;
-            text-decoration: underline triple #e67e22;
-            animation: slideIn 1s ease-in-out;
-        }
+    .services-section {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
 
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+    .services-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-decoration: underline double #e67e22;
+    }
 
-        hr {
-            border: none;
-            height: 3px;
-            background: #e67e22;
-            margin: 10px auto;
-            width: 60%;
-        }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
-            gap: 20px; /* Adjusted gap */
-        }
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
 
-        .service {
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 0.5s ease-in-out;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
+    .service {
+      background: rgba(30, 30, 30, 0.85);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
 
-        @keyframes fadeInUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
 
-        .service:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-        }
+    .service h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-        .service h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+    .service p {
+      font-size: 0.95rem;
+    }
 
-        .service p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
+    #contact {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(30, 30, 30, 0.9);
+      border-radius: 10px;
+      margin-top: 40px;
+    }
 
-        footer {
-            background: rgba(30, 30, 30, 0.9);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
-        }
+    #contact .phone {
+      font-size: 1.5rem;
+      color: #e67e22;
+      margin-bottom: 10px;
+    }
 
-        #contact {
-            text-align: center;
-            padding: 40px 20px; /* Adjusted padding */
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 10px;
-            margin: 20px 0;
-        }
+    #contact a {
+      color: #e67e22;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
 
-        #contact .phone {
-            font-size: 1.5rem; /* Adjusted size for mobile */
-            color: #e67e22;
-        }
+    #contact img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
 
-        .bullet-points {
-            margin-top: 20px;
-            font-size: 1rem; /* Adjusted font size for mobile */
-            line-height: 1.5;
-        }
+    footer {
+      background: rgba(30, 30, 30, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 2;
+    }
 
-        .bullet-points ul {
-            list-style: none;
-            padding-left: 0;
-        }
+    canvas#starsCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-        .bullet-points li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 15px;
-            font-size: 1rem; /* Adjusted font size */
-        }
-
-        .bullet-points li:before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #e67e22;
-            font-size: 1.2rem;
-        }
-
-        #starsCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-    </style>
+    body > *:not(#starsCanvas) {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
 </head>
 <body>
-    <audio id="background-music" loop autoplay controls></audio>
-        <source src="https://dl.sndup.net/g65pf/Astro.mp3" type="audio/mpeg">
-        <source src="https://dl.sndup.net/tmd4r/Astro.ogg" type="audio/ogg">
-        <source src="https://dl.sndup.net/yn9ck/Astro.wav" type="audio/wav">
-        <source src="https://dl.sndup.net/kxk7y/Astro.m4a" type="audio/mp4">
-        Your browser does not support the audio element.
-    </audio>
-    <canvas id="starsCanvas"></canvas>
-    <header>
-        <div class="logo">Shoot the Moon Astrology</div>
-        <nav>
-            <ul>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <h1>Discover Your Destiny Among the Stars</h1>
-        <a href="#contact" class="cta-button">Get Your Prediction</a>
-        <h3 style="margin-top: 20px;">Integrating astrological principles with scientific methodologies to enhance predictive accuracy</h3>
+  <canvas id="starsCanvas"></canvas>
+
+  <header>
+    <div class="logo">Celestial Code</div>
+    <nav>
+      <ul>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Unlock The Secrets Of Your Cosmic Destiny</h1>
+    <div style="text-align: center;">
+      <a href="#contact" class="cta-button">Get Your Prediction</a>
+    </div>
+    <h3>Integrating astrological principles with scientific methodologies to enhance predictive accuracy</h3>
+  </section>
+
+  <main>
+    <section class="services-section">
+      <h2 class="services-title">Astrology Services</h2>
+      <div class="services-grid">
+        <div class="service"><h3>Birth Chart Readings</h3><p>Explore personality, strengths, and challenges.</p></div>
+        <div class="service"><h3>Comparative Astrology</h3><p>Relationship insights via dual chart readings.</p></div>
+        <div class="service"><h3>Consultations</h3><p>Personal sessions for life guidance.</p></div>
+        <div class="service"><h3>Electional Astrology</h3><p>Pick the perfect time for events.</p></div>
+        <div class="service"><h3>Career & Business</h3><p>Strategic planning using planetary data.</p></div>
+        <div class="service"><h3>Astrological Reports</h3><p>Detailed written insights across themes.</p></div>
+        <div class="service"><h3>Astrocartography</h3><p>Location-based destiny exploration.</p></div>
+        <div class="service"><h3>Past Life Reading</h3><p>Connect past life themes to today’s path.</p></div>
+        <div class="service"><h3>Transits & Progressions</h3><p>Stay in sync with cosmic movements.</p></div>
+      </div>
     </section>
-    
-    <main>
-        <section class="services-section">
-            <h2 class="services-title">Astrology Services</h2>
-            <div class="services-grid">
-                <div class="service">
-                    <h3>Personal Birth Chart Readings</h3>
-                    <p>In-depth analysis of natal charts, highlighting personality traits, strengths, and challenges.</p>
-                </div>
-                <div class="service">
-                    <h3>Comparative Astrology</h3>
-                    <p>Comparative readings of natal charts for better understanding of dynamics.</p>
-                </div>
-                <div class="service">
-                    <h3>Astrology Consultations</h3>
-                    <p>One-on-one sessions for specific questions or personalized life guidance.</p>
-                </div>
-                <div class="service">
-                    <h3>Electional Astrology</h3>
-                    <p>Help clients choose optimal dates for important events like weddings or business launches.</p>
-                </div>
-                <div class="service">
-                    <h3>Career and Business Astrology</h3>
-                    <p>Guidance on career paths, job changes, or business ventures based on astrological insights.</p>
-                </div>
-                <div class="service">
-                    <h3>Astrological Reports</h3>
-                    <p>Comprehensive written reports on various themes such as love, career, and personal growth.</p>
-                </div>
-                <div class="service">
-                    <h3>Astrocartography Services</h3>
-                    <p>Analysis of how different locations impact a person’s life and opportunities.</p>
-                </div>
-                <div class="service">
-                    <h3>Past Life Reading</h3>
-                    <p>Explore past life experiences and how they influence your current life journey and relationships.</p>
-                </div>
-                <div class="service">
-                    <h3>Transits and Progressions</h3>
-                    <p>Understand how current planetary movements affect your natal chart and life path.</p>
-                </div>
-            </div>
-        </section>
 
-        <section class="panchangam-section">
-            <h2 class="panchangams-title">Panchangams in Astrology</h2>
-            <div class="bullet-points">
-                <ul>
-                    <li><strong>Tithi (Lunar Day):</strong> A lunar day defined as the time it takes for the Moon to move 12 degrees from the Sun. It carries unique energies that affect emotional and spiritual well-being.</li>
-                    <li><strong>Vara (Weekday):</strong> Days of the week ruled by specific planets, influencing activities and important for decision-making.</li>
-                    <li><strong>Nakshatra (Lunar Mansion):</strong> 27 lunar mansions with distinct traits impacting personality, compatibility, and timing for various life events.</li>
-                    <li><strong>Yoga (Combination of Tithi and Vara):</strong> Indicates the overall energy of a moment, helping determine auspicious timings for activities.</li>
-                    <li><strong>Karana (Half of a Tithi):</strong> Provides insights into shorter time frames, helping fine-tune daily actions based on cosmic energies.</li>
-                </ul>
-            </div>
-        </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p class="phone">
+        <a href="https://wa.me/919036544997">
+          <img src="https://tochat.be/whatsapp-icon-white.png" alt="WhatsApp" />9036544997
+        </a>
+      </p>
+      <p>We’re here to guide you through your astrological journey!</p>
+    </section>
+  </main>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p class="phone" style="display: flex; align-items: center; justify-content: center;">
-                <a href="https://wa.me/919036544997" style="color: #e67e22; text-decoration: none; display: flex; align-items: center;">
-                    <img src="https://tochat.be/whatsapp-icon-white.png" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 10px;"> 
-                    9036544997
-                </a>
-            </p>
-            <p style="text-align: center;">We’re here to guide you through your astrological journey!</p>
-        </section>        
-        
-        
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 Shoot the Moon Astrology. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Celestial Code. All rights reserved.</p>
+  </footer>
 
-    <script>
-        const canvas = document.getElementById('starsCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+  <!-- Prediction Modal -->
+  <div id="predictionModal" style="display: none;">
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; z-index: 9999;">
+      <div style="background: #1e1e1e; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px; box-shadow: 0 0 30px #e67e22;">
+        <h2 style="margin-bottom: 15px; color: #e67e22;">Reveal Your Cosmic Insight</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px;" />
+          <input type="date" placeholder="Date of Birth" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px;" />
+          <textarea placeholder="What do you seek?" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px;"></textarea>
+          <button type="submit" style="background: #e67e22; color: #fff; padding: 10px 20px; border: none; border-radius: 30px;">Send</button>
+        </form>
+        <p style="margin-top: 10px; text-align: right;"><a href="#" onclick="closeModal()" style="color: #ccc;">Cancel</a></p>
+      </div>
+    </div>
+  </div>
 
-        const stars = [];
-        const connectionDistance = 100;
-        const starCount = 50;
+  <script>
+    const canvas = document.getElementById('starsCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-        for (let i = 0; i < starCount; i++) {
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                dx: (Math.random() - 0.5) * 2,
-                dy: (Math.random() - 0.5) * 2,
-                brightness: Math.random() * 0.2 + 0.1  // Adjusted brightness range
-            });
+    const stars = [];
+    const starCount = 50;
+    const connectionDistance = 100;
+
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2,
+        brightness: Math.random() * 0.2 + 0.1,
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach(star => {
+        star.x += star.dx;
+        star.y += star.dy;
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 215, 0, ${star.brightness})`;
+        ctx.fill();
+      });
+
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[j].x - stars[i].x;
+          const dy = stars[j].y - stars[i].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < connectionDistance) {
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
         }
+      }
 
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            stars.forEach(star => {
-                star.x += star.dx;
-                star.y += star.dy;
+      requestAnimationFrame(draw);
+    }
 
-                if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-                if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+    draw();
 
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, 3, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 215, 0, ${star.brightness})`;
-                ctx.fill();
-            });
+    document.querySelector('nav a').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
 
-            for (let i = 0; i < stars.length; i++) {
-                for (let j = i + 1; j < stars.length; j++) {
-                    const dx = stars[j].x - stars[i].x;
-                    const dy = stars[j].y - stars[i].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(stars[i].x, stars[i].y);
-                        ctx.lineTo(stars[j].x, stars[j].y);
-                        ctx.strokeStyle = `rgba(255, 215, 0, 0.3)`; // Optional: Adjust connection brightness
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            requestAnimationFrame(draw);
-        }
-
-        draw();
-
-        document.querySelector('nav a').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
